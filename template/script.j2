@@ -1,0 +1,31 @@
+!
+hostname {{ vars_from_csv.new_hostname }}
+!
+{% if vars_from_csv.DHCP == 'true' %}
+no ip dhcp conflict logging
+ip dhcp excluded-address {{vars_from_csv.dhcp_exclude1_start}} {{vars_from_csv.dhcp_exclude1_end}}
+!
+ip dhcp pool POOL1
+   network {{vars_from_csv.dhcp_network}} {{vars_from_csv.dhcp_netmask}}
+   default-router {{vars_from_csv.dhcp_gateway}}
+   dns-server 8.8.8.8 8.8.4.4
+{% endif %}
+!
+interface loopback {{ vars_from_csv.id_loopback }}
+ description + Management +
+ ip address {{ vars_from_csv.ip_loopback }} {{ vars_from_csv.mask_loopback }}
+ no shutdown
+!
+{% for interface in cisco_881_l2_interfaces %}
+interface {{interface}}
+ switchport access vlan 10
+ spanning-tree portfast
+!
+{% endfor %}
+{% for loopback in loopback_id %}
+interface loopback {{loopback}}
+  ip address {{ vars_from_csv.ip_loopback }} {{ vars_from_csv.mask_loopback }}
+  no shutdown
+!
+{% endfor %}
+!

@@ -1,0 +1,20 @@
+---
+- name: JINJA AND CSVFILE
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: OBTAIN LOGIN CREDENTIALS
+    include_vars: secret.yaml
+
+  - name: LOOKUP IN CSV FILE
+    include_role:
+      name: lookup_csv_info
+    when: ./excel/test.csv is defined
+
+  - name: EXECUTE JINJA2
+    include_role:
+      name: script_jinja2
+
+  #- debug: var={{'vars_from_csv'}}

@@ -1,0 +1,11 @@
+---
+- name: TEMPLATE
+  template:
+    src: ./template/script.j2
+    dest: ./template/configuration/script_{{ inventory_hostname }}.conf
+  with_items: "{{ inventory_hostname }}"
+
+#- name: Execute Script
+#  ios_config:
+#    provider: "{{ creds }}"
+#    src: ./template/script.conf
