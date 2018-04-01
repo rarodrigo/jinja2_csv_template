@@ -3,9 +3,9 @@ The whole process about this developer action were declared inside my which is b
 
 I would like to explain the role process inside my BLOG was explained in 3 steps doing test and making validation in different situation. Follow the 3 steps explaining this implementation:
 
-[Part 1 - CSV Configuration File](https://ciscoredes.com.br/2018/03/08/ansible-configuracao-via-csv-file-loops/)
-[Part 2 - Configuration inside Jinja2](https://ciscoredes.com.br/2018/03/13/ansible-script-configuracao-usando-jinja2-parte-2/)
-[Part 3 - Variable Loop inside Jinja2](https://ciscoredes.com.br/2018/04/02/ansible-loop-de-variaveis-usando-jinja2-parte-3/)
+[Part 1 - CSV Configuration File](https://ciscoredes.com.br/2018/03/08/ansible-configuracao-via-csv-file-loops/)<br>
+[Part 2 - Configuration inside Jinja2](https://ciscoredes.com.br/2018/03/13/ansible-script-configuracao-usando-jinja2-parte-2/)<br>
+[Part 3 - Variable Loop inside Jinja2](https://ciscoredes.com.br/2018/04/02/ansible-loop-de-variaveis-usando-jinja2-parte-3/)<br>
 
 There are many resource used in this script, however all modules are inside Ansible documentation using `roles`, `group_vars`,`jinja2`,`csv file database` and `conditionals`.
 
