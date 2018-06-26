@@ -12,4 +12,10 @@
         id_loopback: "{{ lookup('csvfile', '{{ inventory_hostname }} file=./excel/test.csv col=8 delimiter=,') }}"
         ip_loopback: "{{ lookup('csvfile', '{{ inventory_hostname }} file=./excel/test.csv col=9 delimiter=,') }}"
         mask_loopback: "{{ lookup('csvfile', '{{ inventory_hostname }} file=./excel/test.csv col=10 delimiter=,') }}"
+        ip_loopback_x: "{{ lookup('csvfile', '{{ inventory_hostname }} file=./excel/test.csv col=11 delimiter=,') }}"
+        mask_loopback_x: "{{ lookup('csvfile', '{{ inventory_hostname }} file=./excel/test.csv col=12 delimiter=,') }}"
+        ip_loopback_y: "{{ lookup('csvfile', '{{ inventory_hostname }} file=./excel/test.csv col=13 delimiter=,') }}"
+        mask_loopback_y: "{{ lookup('csvfile', '{{ inventory_hostname }} file=./excel/test.csv col=14 delimiter=,') }}"
   with_items: "{{ inventory_hostname }}"
+  tags:
+    - always

@@ -7,14 +7,20 @@
   tasks:
   - name: OBTAIN LOGIN CREDENTIALS
     include_vars: secret.yaml
+    tags:
+      - always
+
 
   - name: LOOKUP IN CSV FILE
     include_role:
       name: lookup_csv_info
     when: ./excel/test.csv is defined
+    tags:
+      - always
+
 
   - name: EXECUTE JINJA2
     include_role:
       name: script_jinja2
-
-  #- debug: var={{'vars_from_csv'}}
+    tags:
+      - always

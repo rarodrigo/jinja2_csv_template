@@ -1,11 +1,16 @@
 ---
-- name: TEMPLATE
+- name: TEMPLATE 881
   template:
     src: ./template/script.j2
     dest: ./template/configuration/script_{{ inventory_hostname }}.conf
   with_items: "{{ inventory_hostname }}"
+  tags:
+    - router881
 
-#- name: Execute Script
-#  ios_config:
-#    provider: "{{ creds }}"
-#    src: ./template/script.conf
+- name: TEMPLATE 1941
+  template:
+    src: ./template/script_1941.j2
+    dest: ./template/configuration/script_{{ inventory_hostname }}.conf
+  with_items: "{{ inventory_hostname }}"
+  tags:
+    - router1941

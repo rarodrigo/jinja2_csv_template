@@ -22,10 +22,23 @@ interface {{interface}}
  spanning-tree portfast
 !
 {% endfor %}
+!
 {% for loopback in loopback_id %}
+{% if loopback == 12 %}
+interface loopback {{loopback}}
+  ip address {{ vars_from_csv.ip_loopback_x }} {{ vars_from_csv.mask_loopback_x }}
+  no shutdown
+!
+{% elif loopback == 13 %}
+interface loopback {{loopback}}
+  ip address {{ vars_from_csv.ip_loopback_y }} {{ vars_from_csv.mask_loopback_y }}
+  no shutdown
+!
+{% else %}
 interface loopback {{loopback}}
   ip address {{ vars_from_csv.ip_loopback }} {{ vars_from_csv.mask_loopback }}
   no shutdown
 !
+{% endif %}
 {% endfor %}
 !
