@@ -10,14 +10,12 @@
     tags:
       - always
 
-
   - name: LOOKUP IN CSV FILE
     include_role:
       name: lookup_csv_info
-    when: ./excel/test.csv is defined
+    when: "'./excel/test.csv is defined'"
     tags:
       - always
-
 
   - name: EXECUTE JINJA2
     include_role:
