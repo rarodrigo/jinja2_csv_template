@@ -4,3 +4,4 @@ R2 ansible_host=192.168.0.23
 R31 ansible_host=192.168.0.24
 R5 ansible_host=192.168.0.24
 R6 ansible_host=192.168.0.24
+R4 ansible_host=192.168.0.24
